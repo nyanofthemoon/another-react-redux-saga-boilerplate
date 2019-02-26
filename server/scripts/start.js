@@ -23,7 +23,7 @@ const clearConsole = require('react-dev-utils/clearConsole');
 const isInteractive = process.stdout.isTTY;
 
 // Warn and crash if required files are missing
-if (!checkRequiredFiles([paths.appIndexJs])) {
+if (!checkRequiredFiles([ paths.appIndexJs ])) {
   process.exit(1);
 }
 

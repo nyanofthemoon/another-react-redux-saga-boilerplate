@@ -1,15 +1,15 @@
-import { produce } from 'immer'
+/* eslint-disable no-param-reassign */
+import { produce } from 'immer';
 
-const initialState = {
-    data: {}
+export const initialUserState = {
+  data: {},
 };
 
-const userReducer = (state = initialState, action) => produce(state, draft => {
-    switch (action.type) {
-
-        default:
-            break;
-    }
+const userReducer = (state = initialUserState, action) => produce(state, (draft) => { // eslint-disable-line no-unused-vars, max-len
+  switch (action.type) {
+    default:
+      break;
+  }
 });
 
 export default userReducer;

@@ -8,7 +8,7 @@
     "antd": "^3.13.2",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
-    "babel-jest": "23.6.0",
+    "babel-jest": "^24.1.0",
     "babel-loader": "8.0.5",
     "babel-plugin-named-asset-import": "^0.3.1",
     "babel-preset-react-app": "^7.0.1",
@@ -19,7 +19,9 @@
     "dotenv": "6.0.0",
     "dotenv-expand": "4.2.0",
     "eslint": "5.12.0",
+    "eslint-config-airbnb": "^17.1.0",
     "eslint-config-react-app": "^3.0.7",
+    "eslint-import-resolver-node": "^0.3.2",
     "eslint-loader": "2.1.1",
     "eslint-plugin-flowtype": "2.50.1",
     "eslint-plugin-import": "2.14.0",
@@ -33,7 +35,7 @@
     "html-webpack-plugin": "4.0.0-alpha.2",
     "identity-obj-proxy": "3.0.0",
     "immer": "^2.0.0",
-    "jest": "23.6.0",
+    "jest": "^24.1.0",
     "jest-pnp-resolver": "1.0.2",
     "jest-resolve": "23.6.0",
     "jest-watch-typeahead": "^0.2.1",
@@ -42,6 +44,7 @@
     "mini-css-extract-plugin": "0.5.0",
     "moment": "^2.24.0",
     "node-sass": "^4.11.0",
+    "nodemon": "^1.18.10",
     "optimize-css-assets-webpack-plugin": "5.0.1",
     "pnp-webpack-plugin": "1.2.1",
     "pnpm": "^2.25.6",
@@ -61,6 +64,7 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
+    "redux-mock-store": "^1.5.3",
     "redux-saga": "^1.0.1",
     "redux-saga-router": "^2.2.0",
     "resolve": "1.10.0",
@@ -74,11 +78,11 @@
     "workbox-webpack-plugin": "3.6.3"
   },
   "scripts": {
-    "start": "node ./server/scripts/start.js",
-    "dev-client": "node ./client/scripts/start.js",
-    "dev-server": "nodemon --watch ./server ./server/scripts/start.js",
+    "start": "pnpm run dev-client & pnpm run dev-server",
     "build": "node ./client/scripts/build.js",
-    "test": "node ./client/scripts/test.js"
+    "test": "node ./client/scripts/test.js",
+    "dev-client": "node ./client/scripts/start.js",
+    "dev-server": "nodemon --watch ./server ./server/scripts/start.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -134,8 +138,5 @@
     "presets": [
       "react-app"
     ]
-  },
-  "devDependencies": {
-    "nodemon": "^1.18.10"
   }
 }

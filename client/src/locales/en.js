@@ -1,5 +1,5 @@
 const en = {
-    'home.greeting': 'Hello',
+  'home.greeting': 'Hello',
 };
 
 export default en;
