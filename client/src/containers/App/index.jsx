@@ -18,6 +18,7 @@ import NoMatch from '../../components/screens/NoMatch';
 import './style.scss';
 
 import { loadApp } from '../../actions/app';
+import { appShapeShape } from '../../reducers/app';
 
 export class App extends React.Component {
   componentWillMount() {
@@ -56,7 +57,7 @@ App.defaultProps = {
 
 App.propTypes = {
   actions: PropTypes.shape({}),
-  app: PropTypes.shape({}),
+  app: PropTypes.shape(appShapeShape),
   history: PropTypes.shape({}),
 };
 

@@ -1,4 +1,5 @@
 /* eslint-disable no-param-reassign */
+import PropTypes from 'prop-types';
 import { produce } from 'immer';
 import moment from 'moment';
 import 'moment/locale/fr';
@@ -15,6 +16,15 @@ export const initialAppState = {
     lang: null,
     antd: null,
   },
+};
+
+export const appShapeShape = {
+  showLoadingAnimation: PropTypes.bool.isRequired,
+  lastError: PropTypes.string.isRequired,
+  locale: PropTypes.shape({
+    lang: PropTypes.string.isRequired,
+    antd: PropTypes.shape({}),
+  }),
 };
 
 const appReducer = (state = initialAppState, action) => produce(state, (draft) => {
