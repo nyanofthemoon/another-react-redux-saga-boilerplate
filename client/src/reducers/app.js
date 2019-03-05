@@ -20,11 +20,11 @@ export const initialAppState = {
 
 export const appShapeShape = {
   showLoadingAnimation: PropTypes.bool.isRequired,
-  lastError: PropTypes.string.isRequired,
+  lastError: PropTypes.string,
   locale: PropTypes.shape({
-    lang: PropTypes.string.isRequired,
+    lang: PropTypes.string,
     antd: PropTypes.shape({}),
-  }),
+  }).isRequired,
 };
 
 const appReducer = (state = initialAppState, action) => produce(state, (draft) => {
