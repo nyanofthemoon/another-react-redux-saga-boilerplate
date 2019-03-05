@@ -2,12 +2,13 @@ import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './containers/App';
+import { HotConnectedApp, ConnectedApp } from './containers/App';
 import configureStore, { history } from './configureStore';
 
 import { unregister } from './serviceWorker';
 
 const store = configureStore();
+const App = module.hot ? HotConnectedApp : ConnectedApp;
 
 const render = () => {
   ReactDOM.render(
@@ -21,9 +22,7 @@ const render = () => {
 render();
 unregister();
 
-// Hot reloading
 if (module.hot) {
-  // Reload components
   module.hot.accept('./containers/App', () => {
     render();
   });

@@ -1,6 +1,7 @@
 {
   "name": "clin-frontend",
   "version": "0.1.0",
+  "versionName": "Prototype",
   "private": true,
   "dependencies": {
     "@babel/core": "7.2.2",
@@ -88,10 +89,9 @@
     "extends": "react-app"
   },
   "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
+    "last 3 versions",
+    "not op_mini all",
+    "not < 1%"
   ],
   "jest": {
     "collectCoverageFrom": [

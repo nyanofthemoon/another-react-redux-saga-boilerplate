@@ -52,23 +52,19 @@ App.propTypes = {
   history: PropTypes.isRequired,
 };
 
-function mapStateToProps(state) {
-  return {
-    app: state.app,
-  };
-}
+const mapStateToProps = state => ({
+  app: state.app,
+});
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators({
-      loadApp,
-    }, dispatch),
-  };
-}
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators({
+    loadApp,
+  }, dispatch),
+});
 
-const ConnectedApp = connect(
+export const ConnectedApp = connect(
   mapStateToProps,
   mapDispatchToProps,
 )(App);
 
-export default hot(module)(ConnectedApp);
+export const HotConnectedApp = hot(module)(ConnectedApp);
