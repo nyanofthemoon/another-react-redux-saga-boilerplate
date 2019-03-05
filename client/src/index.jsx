@@ -22,9 +22,7 @@ const render = () => {
 render();
 unregister();
 
-// Hot reloading
 if (module.hot) {
-  // Reload components
   module.hot.accept('./containers/App', () => {
     render();
   });
