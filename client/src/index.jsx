@@ -1,8 +1,8 @@
 import { Provider } from 'react-redux';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from '@hot-loader/react-dom';
 
-import { HotConnectedApp, ConnectedApp } from './containers/App';
+import HotConnectedApp, { ConnectedApp } from './containers/App';
 import configureStore, { history } from './configureStore';
 
 import { unregister } from './serviceWorker';
@@ -22,7 +22,9 @@ const render = () => {
 render();
 unregister();
 
+// Hot reloading
 if (module.hot) {
+  // Reload components
   module.hot.accept('./containers/App', () => {
     render();
   });

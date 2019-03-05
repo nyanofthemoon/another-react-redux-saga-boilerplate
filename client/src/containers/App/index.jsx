@@ -1,4 +1,4 @@
-import { hot } from 'react-hot-loader';
+import { hot } from 'react-hot-loader/root';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router';
@@ -12,6 +12,7 @@ import 'antd/dist/antd.less';
 
 import Navigation from '../../components/Navigation';
 import Home from '../../components/screens/Home';
+import Example from '../../components/screens/Example';
 import NoMatch from '../../components/screens/NoMatch';
 
 import './style.scss';
@@ -35,6 +36,7 @@ export class App extends React.Component {
                 <Navigation id="navigator" />
                 <Switch id="switch">
                   <Route id="route-home" exact path="/" component={Home} />
+                  <Route id="route-example" exact path="/example" component={Example} />
                   <Route id="route-nomatch" component={NoMatch} />
                 </Switch>
               </div>
@@ -46,10 +48,16 @@ export class App extends React.Component {
   }
 }
 
+App.defaultProps = {
+  actions: null,
+  app: null,
+  history: null,
+};
+
 App.propTypes = {
-  actions: PropTypes.func.isRequired,
-  app: PropTypes.isRequired,
-  history: PropTypes.isRequired,
+  actions: PropTypes.shape({}),
+  app: PropTypes.shape({}),
+  history: PropTypes.shape({}),
 };
 
 const mapStateToProps = state => ({
@@ -67,4 +75,4 @@ export const ConnectedApp = connect(
   mapDispatchToProps,
 )(App);
 
-export const HotConnectedApp = hot(module)(ConnectedApp);
+export default hot(ConnectedApp);
